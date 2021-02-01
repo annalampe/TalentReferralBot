@@ -6,7 +6,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1270,4721.33333333333</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1502.66666666667,4357.33333333333</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>ActivityBuilder_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="41">
@@ -91,302 +91,107 @@
       <AssemblyReference>System.ServiceModel</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap:VirtualizedContainerService.HintSize="1185.33333333333,4656.66666666667" sap2010:WorkflowViewState.IdRef="Sequence_10">
+  <Sequence DisplayName="LinkedIn Robot" sap:VirtualizedContainerService.HintSize="1512.66666666667,4292.66666666667" sap2010:WorkflowViewState.IdRef="Sequence_10">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:String" Name="str_StartUpResponse" />
+      <Variable x:TypeArguments="sd:DataTable" Name="dtRecruitingList" />
+      <Variable x:TypeArguments="x:String" Default="[Boolean.TrueString]" Name="bAddProfile" />
+      <Variable x:TypeArguments="x:String" Name="sReferralLocation" />
+      <Variable x:TypeArguments="x:String" Name="sReferralUrl" />
+      <Variable x:TypeArguments="x:String" Name="sReferralName" />
+      <Variable x:TypeArguments="sd:DataTable" Name="dtNewProfile" />
+      <Variable x:TypeArguments="x:String" Default="Sourcing Fun Times" Name="sKnowThem" />
     </Sequence.Variables>
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:MessageBox Buttons="OkCancel" Caption="LinkedIn Robot" ChosenButton="[str_StartUpResponse]" DisplayName="Message Box - Start Up" sap:VirtualizedContainerService.HintSize="1143.33333333333,58.6666666666667" sap2010:WorkflowViewState.IdRef="MessageBox_1" Text="[&quot;Ensure LinkedIn is open in Chrome and Click Okay to run the bot.&quot;]" TopMost="True" />
-    <If Condition="[str_StartUpResponse=&quot;Ok&quot;]" sap:VirtualizedContainerService.HintSize="1143.33333333333,214" sap2010:WorkflowViewState.IdRef="If_2" />
-    <ui:TriggerScope DisplayName="Trigger Scope" sap:VirtualizedContainerService.HintSize="1143.33333333333,4212" sap2010:WorkflowViewState.IdRef="TriggerScope_1" SchedulingMode="OneTime">
-      <ui:TriggerScope.Action>
-        <ActivityAction x:TypeArguments="ui:EventInfoTriggerArgs">
-          <ActivityAction.Argument>
-            <DelegateInArgument x:TypeArguments="ui:EventInfoTriggerArgs" Name="args" />
-          </ActivityAction.Argument>
-          <Sequence sap:VirtualizedContainerService.HintSize="1090.66666666667,3770.66666666667" sap2010:WorkflowViewState.IdRef="Sequence_8">
-            <Sequence.Variables>
-              <Variable x:TypeArguments="sd:DataTable" Name="dtRecruitingList" />
-              <Variable x:TypeArguments="x:String" Default="[Boolean.TrueString]" Name="bAddProfile" />
-              <Variable x:TypeArguments="x:String" Name="sReferralLocation" />
-              <Variable x:TypeArguments="x:String" Name="sReferralUrl" />
-              <Variable x:TypeArguments="x:String" Name="sReferralName" />
-              <Variable x:TypeArguments="sd:DataTable" Name="dtNewProfile" />
-            </Sequence.Variables>
-            <sap:WorkflowViewStateService.ViewState>
-              <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-              </scg:Dictionary>
-            </sap:WorkflowViewStateService.ViewState>
-            <Sequence sap:VirtualizedContainerService.HintSize="1048.66666666667,3678.66666666667" sap2010:WorkflowViewState.IdRef="Sequence_4">
-              <Sequence.Variables>
-                <Variable x:TypeArguments="x:String" Default="Sourcing Fun Times" Name="sKnowThem" />
-              </Sequence.Variables>
-              <sap:WorkflowViewStateService.ViewState>
-                <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                </scg:Dictionary>
-              </sap:WorkflowViewStateService.ViewState>
-              <ui:BrowserScope Browser="{x:Null}" SearchScope="{x:Null}" TimeoutMS="{x:Null}" UiBrowser="{x:Null}" BrowserType="Chrome" DisplayName="Attach Browser 'chrome.exe'" sap:VirtualizedContainerService.HintSize="1006.66666666667,3586.66666666667" sap2010:WorkflowViewState.IdRef="BrowserScope_2" InformativeScreenshot="4301155a2ec613cfaf3fc8b08f5fd093" Selector="&lt;html app='chrome.exe' url='https://www.linkedin.com/in/*' /&gt;&#xA;">
-                <ui:BrowserScope.Body>
-                  <ActivityAction x:TypeArguments="x:Object">
-                    <ActivityAction.Argument>
-                      <DelegateInArgument x:TypeArguments="x:Object" Name="ContextTarget" />
-                    </ActivityAction.Argument>
-                    <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="972.666666666667,3440.66666666667" sap2010:WorkflowViewState.IdRef="Sequence_5">
-                      <Sequence.Variables>
-                        <Variable x:TypeArguments="x:String" Name="sFoundProfile" />
-                      </Sequence.Variables>
-                      <sap:WorkflowViewStateService.ViewState>
-                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                        </scg:Dictionary>
-                      </sap:WorkflowViewStateService.ViewState>
-                      <Assign sap:VirtualizedContainerService.HintSize="930.666666666667,62" sap2010:WorkflowViewState.IdRef="Assign_2">
-                        <Assign.To>
-                          <OutArgument x:TypeArguments="x:String">[bAddProfile]</OutArgument>
-                        </Assign.To>
-                        <Assign.Value>
-                          <InArgument x:TypeArguments="x:String">[Boolean.TrueString]</InArgument>
-                        </Assign.Value>
-                      </Assign>
-                      <ui:GetAttribute ContinueOnError="{x:Null}" Attribute="url" DisplayName="Get Attribute" sap:VirtualizedContainerService.HintSize="930.666666666667,96" sap2010:WorkflowViewState.IdRef="GetAttribute_2">
-                        <ui:GetAttribute.Result>
-                          <OutArgument x:TypeArguments="x:String">[sReferralUrl]</OutArgument>
-                        </ui:GetAttribute.Result>
-                        <ui:GetAttribute.Target>
-                          <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Selector="{x:Null}" Id="ba13a5e7-7d23-46aa-8bcb-1805f8dcce9b">
-                            <ui:Target.TimeoutMS>
-                              <InArgument x:TypeArguments="x:Int32" />
-                            </ui:Target.TimeoutMS>
-                            <ui:Target.WaitForReady>
-                              <InArgument x:TypeArguments="ui:WaitForReady" />
-                            </ui:Target.WaitForReady>
-                          </ui:Target>
-                        </ui:GetAttribute.Target>
-                      </ui:GetAttribute>
-                      <ui:ReadCsvFile Encoding="{x:Null}" DataTable="[dtRecruitingList]" Delimitator="Comma" DisplayName="Read CSV" FilePath="[sFilePath]" sap:VirtualizedContainerService.HintSize="930.666666666667,156.666666666667" sap2010:WorkflowViewState.IdRef="ReadCsvFile_1" />
-                      <ui:LookupDataTable LookupColumnIndex="{x:Null}" LookupDataColumn="{x:Null}" RowIndex="{x:Null}" TargetColumnIndex="{x:Null}" TargetDataColumn="{x:Null}" DataTable="[dtRecruitingList]" DisplayName="Lookup Data Table" sap:VirtualizedContainerService.HintSize="930.666666666667,22" sap2010:WorkflowViewState.IdRef="LookupDataTable_1" LookupColumnName="Profile" LookupValue="[sReferralUrl]" TargetColumnName="Profile">
-                        <ui:LookupDataTable.CellValue>
-                          <OutArgument x:TypeArguments="x:String">[sFoundProfile]</OutArgument>
-                        </ui:LookupDataTable.CellValue>
-                      </ui:LookupDataTable>
-                      <If Condition="[sFoundProfile = &quot;&quot;]" sap:VirtualizedContainerService.HintSize="930.666666666667,2852" sap2010:WorkflowViewState.IdRef="If_1">
-                        <If.Then>
-                          <Sequence sap:VirtualizedContainerService.HintSize="550.666666666667,2701.33333333333" sap2010:WorkflowViewState.IdRef="Sequence_12">
-                            <sap:WorkflowViewStateService.ViewState>
-                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                              </scg:Dictionary>
-                            </sap:WorkflowViewStateService.ViewState>
-                            <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="508.666666666667,94.6666666666667" sap2010:WorkflowViewState.IdRef="LogMessage_9" Level="Info" Message="[&quot;NOT FOUND&quot; + sFoundProfile]" />
-                            <Assign sap:VirtualizedContainerService.HintSize="508.666666666667,62" sap2010:WorkflowViewState.IdRef="Assign_1">
-                              <Assign.To>
-                                <OutArgument x:TypeArguments="x:String">[bAddProfile]</OutArgument>
-                              </Assign.To>
-                              <Assign.Value>
-                                <InArgument x:TypeArguments="x:String">[Boolean.FalseString]</InArgument>
-                              </Assign.Value>
-                            </Assign>
-                            <Sequence sap:VirtualizedContainerService.HintSize="508.666666666667,2372.66666666667" sap2010:WorkflowViewState.IdRef="Sequence_13">
-                              <sap:WorkflowViewStateService.ViewState>
-                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                                </scg:Dictionary>
-                              </sap:WorkflowViewStateService.ViewState>
-                              <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="466.666666666667,94.6666666666667" sap2010:WorkflowViewState.IdRef="LogMessage_6" Level="Info" Message="[sReferralUrl]" />
-                              <ui:GetAttribute ContinueOnError="{x:Null}" Attribute="innerText" DisplayName="Get Name" sap:VirtualizedContainerService.HintSize="466.666666666667,134" sap2010:WorkflowViewState.IdRef="GetAttribute_3">
-                                <ui:GetAttribute.Result>
-                                  <OutArgument x:TypeArguments="x:String">[sReferralName]</OutArgument>
-                                </ui:GetAttribute.Result>
-                                <ui:GetAttribute.Target>
-                                  <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="ba13a5e7-7d23-46aa-8bcb-1805f8dcce9b" InformativeScreenshot="a7489ed0e2828607a73f42bc7a4898dc" Selector="&lt;html app='chrome.exe' url='https://www.linkedin.com/in/*' /&gt;&lt;webctrl parentid='ember*' tag='LI' class='inline t-24 t-black t-normal break-words' parentclass='pv-top-card--list inline-flex align-items-center' /&gt;">
-                                    <ui:Target.TimeoutMS>
-                                      <InArgument x:TypeArguments="x:Int32" />
-                                    </ui:Target.TimeoutMS>
-                                    <ui:Target.WaitForReady>
-                                      <InArgument x:TypeArguments="ui:WaitForReady" />
-                                    </ui:Target.WaitForReady>
-                                  </ui:Target>
-                                </ui:GetAttribute.Target>
-                              </ui:GetAttribute>
-                              <ui:GetAttribute ContinueOnError="{x:Null}" Attribute="innerText" DisplayName="Get Location" sap:VirtualizedContainerService.HintSize="466.666666666667,134" sap2010:WorkflowViewState.IdRef="GetAttribute_4">
-                                <ui:GetAttribute.Result>
-                                  <OutArgument x:TypeArguments="x:String">[sReferralLocation]</OutArgument>
-                                </ui:GetAttribute.Result>
-                                <ui:GetAttribute.Target>
-                                  <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="617ce8a1-1243-46c3-91e5-3ebe7bbd7dfa" InformativeScreenshot="6d5ae7d848e5649c61d0e52735cd0360" Selector="&lt;html app='chrome.exe' url='https://www.linkedin.com/in/*' /&gt;&lt;webctrl isleaf='1' parentid='ember*' tag='LI' class='t-16 t-black t-normal inline-block' /&gt;">
-                                    <ui:Target.TimeoutMS>
-                                      <InArgument x:TypeArguments="x:Int32" />
-                                    </ui:Target.TimeoutMS>
-                                    <ui:Target.WaitForReady>
-                                      <InArgument x:TypeArguments="ui:WaitForReady" />
-                                    </ui:Target.WaitForReady>
-                                  </ui:Target>
-                                </ui:GetAttribute.Target>
-                              </ui:GetAttribute>
-                              <ui:OpenBrowser CommunicationMethod="{x:Null}" Hidden="{x:Null}" NewSession="{x:Null}" Private="{x:Null}" UiBrowser="{x:Null}" BrowserType="Chrome" DisplayName="Open Browser" sap:VirtualizedContainerService.HintSize="466.666666666667,1798" sap2010:WorkflowViewState.IdRef="OpenBrowser_1" Url="https://forms.office.com/Pages/ResponsePage.aspx?id=KFGnnESilkWHe_JIKOR24oGfczMo_a9InSYSveMK5w9UMTRFQ09QVkhNNlZWS1VIMENRT04wQThQNi4u">
-                                <ui:OpenBrowser.Body>
-                                  <ActivityAction x:TypeArguments="x:Object">
-                                    <ActivityAction.Argument>
-                                      <DelegateInArgument x:TypeArguments="x:Object" Name="ContextTarget" />
-                                    </ActivityAction.Argument>
-                                    <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="376,1695.33333333333" sap2010:WorkflowViewState.IdRef="Sequence_6">
-                                      <Sequence.Variables>
-                                        <Variable x:TypeArguments="sd:DataRow" Name="drProfile" />
-                                      </Sequence.Variables>
-                                      <sap:WorkflowViewStateService.ViewState>
-                                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                                        </scg:Dictionary>
-                                      </sap:WorkflowViewStateService.ViewState>
-                                      <ui:SetValue AlterIfDisabled="{x:Null}" ContinueOnError="{x:Null}" DelayAfter="{x:Null}" DelayBefore="{x:Null}" DisplayName="Set Text 'INPUT'" sap:VirtualizedContainerService.HintSize="334,134" sap2010:WorkflowViewState.IdRef="SetValue_1" Text="[sMyName]">
-                                        <ui:SetValue.Target>
-                                          <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="3a1fc9c0-5d86-4b4f-8920-1b48fdfbad24" InformativeScreenshot="24878c76793b9b1c345e5a7b4d71e6c4" Selector="&lt;webctrl idx='1' tag='INPUT' /&gt;">
-                                            <ui:Target.TimeoutMS>
-                                              <InArgument x:TypeArguments="x:Int32" />
-                                            </ui:Target.TimeoutMS>
-                                            <ui:Target.WaitForReady>
-                                              <InArgument x:TypeArguments="ui:WaitForReady" />
-                                            </ui:Target.WaitForReady>
-                                          </ui:Target>
-                                        </ui:SetValue.Target>
-                                      </ui:SetValue>
-                                      <ui:SetValue AlterIfDisabled="{x:Null}" ContinueOnError="{x:Null}" DelayAfter="{x:Null}" DelayBefore="{x:Null}" DisplayName="Set Text 'INPUT'" sap:VirtualizedContainerService.HintSize="334,134" sap2010:WorkflowViewState.IdRef="SetValue_2" Text="[sReferralName.trim()]">
-                                        <ui:SetValue.Target>
-                                          <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="8b67e9ae-414e-4ae6-b0b6-c43ac17610a4" InformativeScreenshot="6ae3af009174fef29716494d3345d239" Selector="&lt;webctrl idx='2' tag='INPUT' /&gt;">
-                                            <ui:Target.TimeoutMS>
-                                              <InArgument x:TypeArguments="x:Int32" />
-                                            </ui:Target.TimeoutMS>
-                                            <ui:Target.WaitForReady>
-                                              <InArgument x:TypeArguments="ui:WaitForReady" />
-                                            </ui:Target.WaitForReady>
-                                          </ui:Target>
-                                        </ui:SetValue.Target>
-                                      </ui:SetValue>
-                                      <ui:SetValue AlterIfDisabled="{x:Null}" ContinueOnError="{x:Null}" DelayAfter="{x:Null}" DelayBefore="{x:Null}" DisplayName="Set Text 'INPUT'" sap:VirtualizedContainerService.HintSize="334,134" sap2010:WorkflowViewState.IdRef="SetValue_3" Text="[sReferralUrl.trim()]">
-                                        <ui:SetValue.Target>
-                                          <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="c9acd919-3c0c-479c-8f6a-878e6e0f590c" InformativeScreenshot="cac17ec5c990c7fe721fc276afae42e4" Selector="&lt;webctrl idx='3' tag='INPUT' /&gt;">
-                                            <ui:Target.TimeoutMS>
-                                              <InArgument x:TypeArguments="x:Int32" />
-                                            </ui:Target.TimeoutMS>
-                                            <ui:Target.WaitForReady>
-                                              <InArgument x:TypeArguments="ui:WaitForReady" />
-                                            </ui:Target.WaitForReady>
-                                          </ui:Target>
-                                        </ui:SetValue.Target>
-                                      </ui:SetValue>
-                                      <ui:SetValue AlterIfDisabled="{x:Null}" ContinueOnError="{x:Null}" DelayAfter="{x:Null}" DelayBefore="{x:Null}" DisplayName="Set Text 'INPUT'" sap:VirtualizedContainerService.HintSize="334,134" sap2010:WorkflowViewState.IdRef="SetValue_5" Text="[sReferralLocation.trim()]">
-                                        <ui:SetValue.Target>
-                                          <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="ddfa90a7-ef2e-4d1c-8c8c-c6bd8543a951" InformativeScreenshot="5bc7b70f1dcaec1bf8810b1d24483682" Selector="&lt;webctrl idx='4' tag='INPUT' /&gt;">
-                                            <ui:Target.TimeoutMS>
-                                              <InArgument x:TypeArguments="x:Int32" />
-                                            </ui:Target.TimeoutMS>
-                                            <ui:Target.WaitForReady>
-                                              <InArgument x:TypeArguments="ui:WaitForReady" />
-                                            </ui:Target.WaitForReady>
-                                          </ui:Target>
-                                        </ui:SetValue.Target>
-                                      </ui:SetValue>
-                                      <ui:SetValue AlterIfDisabled="{x:Null}" ContinueOnError="{x:Null}" DelayAfter="{x:Null}" DelayBefore="{x:Null}" DisplayName="Set Text 'TEXTAREA'" sap:VirtualizedContainerService.HintSize="334,134" sap2010:WorkflowViewState.IdRef="SetValue_4" Text="[sKnowThem]">
-                                        <ui:SetValue.Target>
-                                          <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="bc1dc28a-3883-4e83-bcb1-20db57320e83" InformativeScreenshot="a95d7835e9e76f62220f71d4fff8ea01" Selector="&lt;webctrl tag='TEXTAREA' /&gt;">
-                                            <ui:Target.TimeoutMS>
-                                              <InArgument x:TypeArguments="x:Int32" />
-                                            </ui:Target.TimeoutMS>
-                                            <ui:Target.WaitForReady>
-                                              <InArgument x:TypeArguments="ui:WaitForReady" />
-                                            </ui:Target.WaitForReady>
-                                          </ui:Target>
-                                        </ui:SetValue.Target>
-                                      </ui:SetValue>
-                                      <ui:Check AlterIfDisabled="{x:Null}" ContinueOnError="{x:Null}" DelayAfter="{x:Null}" DelayBefore="{x:Null}" Action="Check" DisplayName="Check 'INPUT'" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="Check_1">
-                                        <ui:Check.Target>
-                                          <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="83a261af-9b2d-4182-93d7-59c81b098807" InformativeScreenshot="5baa5d0577d10c525f13ae5cd00ec00b" Selector="&lt;webctrl idx='1' tag='INPUT' type='radio' /&gt;">
-                                            <ui:Target.TimeoutMS>
-                                              <InArgument x:TypeArguments="x:Int32" />
-                                            </ui:Target.TimeoutMS>
-                                            <ui:Target.WaitForReady>
-                                              <InArgument x:TypeArguments="ui:WaitForReady" />
-                                            </ui:Target.WaitForReady>
-                                          </ui:Target>
-                                        </ui:Check.Target>
-                                      </ui:Check>
-                                      <ui:Check AlterIfDisabled="{x:Null}" ContinueOnError="{x:Null}" DelayAfter="{x:Null}" DelayBefore="{x:Null}" Action="Check" DisplayName="Check 'INPUT'" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="Check_2">
-                                        <ui:Check.Target>
-                                          <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="7f0f9807-1806-47da-99b9-d8a69fe7153e" InformativeScreenshot="038429671a58d47003ea54a7a802606d" Selector="&lt;html app='chrome.exe' title='RDT Referrals' /&gt;&lt;webctrl tag='INPUT' type='radio' aria-label='No, but you can mention me -- We will reach out via LinkedIn or contact information provided' /&gt;">
-                                            <ui:Target.TimeoutMS>
-                                              <InArgument x:TypeArguments="x:Int32" />
-                                            </ui:Target.TimeoutMS>
-                                            <ui:Target.WaitForReady>
-                                              <InArgument x:TypeArguments="ui:WaitForReady" />
-                                            </ui:Target.WaitForReady>
-                                          </ui:Target>
-                                        </ui:Check.Target>
-                                      </ui:Check>
-                                      <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click 'DIV'" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="Click_1" KeyModifiers="None" MouseButton="BTN_LEFT">
-                                        <ui:Click.CursorPosition>
-                                          <ui:CursorPosition Position="Center">
-                                            <ui:CursorPosition.OffsetX>
-                                              <InArgument x:TypeArguments="x:Int32" />
-                                            </ui:CursorPosition.OffsetX>
-                                            <ui:CursorPosition.OffsetY>
-                                              <InArgument x:TypeArguments="x:Int32" />
-                                            </ui:CursorPosition.OffsetY>
-                                          </ui:CursorPosition>
-                                        </ui:Click.CursorPosition>
-                                        <ui:Click.Target>
-                                          <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="06a72b2e-efee-496d-911d-0dd774ceede9" InformativeScreenshot="0e875e6ec3e78dd4bf2d650f47624f26" Selector="&lt;webctrl css-selector='body&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div' idx='1' isleaf='1' parentid='form-container' tag='DIV' /&gt;">
-                                            <ui:Target.TimeoutMS>
-                                              <InArgument x:TypeArguments="x:Int32" />
-                                            </ui:Target.TimeoutMS>
-                                            <ui:Target.WaitForReady>
-                                              <InArgument x:TypeArguments="ui:WaitForReady" />
-                                            </ui:Target.WaitForReady>
-                                          </ui:Target>
-                                        </ui:Click.Target>
-                                      </ui:Click>
-                                      <ui:BuildDataTable DataTable="[dtNewProfile]" DisplayName="Build Data Table" sap:VirtualizedContainerService.HintSize="334,58.6666666666667" sap2010:WorkflowViewState.IdRef="BuildDataTable_1" TableInfo="&lt;NewDataSet&gt;&#xA;  &lt;xs:schema id=&quot;NewDataSet&quot; xmlns=&quot;&quot; xmlns:xs=&quot;http://www.w3.org/2001/XMLSchema&quot; xmlns:msdata=&quot;urn:schemas-microsoft-com:xml-msdata&quot;&gt;&#xA;    &lt;xs:element name=&quot;NewDataSet&quot; msdata:IsDataSet=&quot;true&quot; msdata:MainDataTable=&quot;TableName&quot; msdata:UseCurrentLocale=&quot;true&quot;&gt;&#xA;      &lt;xs:complexType&gt;&#xA;        &lt;xs:choice minOccurs=&quot;0&quot; maxOccurs=&quot;unbounded&quot;&gt;&#xA;          &lt;xs:element name=&quot;TableName&quot;&gt;&#xA;            &lt;xs:complexType&gt;&#xA;              &lt;xs:sequence&gt;&#xA;                &lt;xs:element name=&quot;Profile&quot; msdata:Caption=&quot;&quot; minOccurs=&quot;0&quot;&gt;&#xA;                  &lt;xs:simpleType&gt;&#xA;                    &lt;xs:restriction base=&quot;xs:string&quot;&gt;&#xA;                      &lt;xs:maxLength value=&quot;100&quot; /&gt;&#xA;                    &lt;/xs:restriction&gt;&#xA;                  &lt;/xs:simpleType&gt;&#xA;                &lt;/xs:element&gt;&#xA;              &lt;/xs:sequence&gt;&#xA;            &lt;/xs:complexType&gt;&#xA;          &lt;/xs:element&gt;&#xA;        &lt;/xs:choice&gt;&#xA;      &lt;/xs:complexType&gt;&#xA;    &lt;/xs:element&gt;&#xA;  &lt;/xs:schema&gt;&#xA;&lt;/NewDataSet&gt;" />
-                                      <ui:AddDataRow DataRow="{x:Null}" ArrayRow="[{sReferralUrl}]" DataTable="[dtNewProfile]" DisplayName="Add Data Row" sap:VirtualizedContainerService.HintSize="334,22" sap2010:WorkflowViewState.IdRef="AddDataRow_1" />
-                                      <ui:AppendCsvFile Encoding="{x:Null}" DataTable="[dtNewProfile]" Delimitator="Comma" DisplayName="Append to CSV" FilePath="[sFilePath]" sap:VirtualizedContainerService.HintSize="334,134.666666666667" sap2010:WorkflowViewState.IdRef="AppendCsvFile_1" />
-                                    </Sequence>
-                                  </ActivityAction>
-                                </ui:OpenBrowser.Body>
-                              </ui:OpenBrowser>
-                            </Sequence>
-                          </Sequence>
-                        </If.Then>
-                        <If.Else>
-                          <ui:CalloutScope DisplayName="Callout" sap:VirtualizedContainerService.HintSize="334,190" sap2010:WorkflowViewState.IdRef="CalloutScope_1">
-                            <ui:CalloutScope.CalloutForm>
-                              <ActivityFunc x:TypeArguments="sd1:Rectangle, s:IntPtr, stt:Task" Argument1="{x:Reference __ReferenceID0}" Argument2="{x:Reference __ReferenceID1}">
-                                <uca:CallOutActivity CalloutFieldsInputData="{x:Null}" CalloutFieldsOutputData="{x:Null}" Dismissed="{x:Null}" Result="{x:Null}" SelectedButton="{x:Null}" TimeoutInSeconds="{x:Null}" BackgroundColor="#FFFFFFFF" CalloutSchema="%[{&quot;tag&quot;:&quot;h3&quot;,&quot;refreshOnChange&quot;:true,&quot;content&quot;:&quot;Already sent rockstar.&quot;,&quot;key&quot;:&quot;title&quot;,&quot;label&quot;:&quot;HTML&quot;,&quot;attrs&quot;:[{&quot;attr&quot;:&quot;&quot;,&quot;value&quot;:&quot;&quot;}],&quot;mask&quot;:false,&quot;tableView&quot;:true,&quot;alwaysEnabled&quot;:false,&quot;type&quot;:&quot;label&quot;,&quot;input&quot;:false,&quot;reorder&quot;:false,&quot;labelWidth&quot;:30,&quot;labelMargin&quot;:3,&quot;clearOnRefresh&quot;:false},{&quot;label&quot;:&quot;Close&quot;,&quot;theme&quot;:&quot;danger&quot;,&quot;tableView&quot;:false,&quot;key&quot;:&quot;close&quot;,&quot;custom&quot;:&quot;instance.emit('executeDoBlock', instance.component);&quot;,&quot;input&quot;:true,&quot;type&quot;:&quot;button&quot;},{&quot;label&quot;:&quot;HTML&quot;,&quot;tag&quot;:&quot;br&quot;,&quot;attrs&quot;:[{&quot;attr&quot;:&quot;&quot;,&quot;value&quot;:&quot;&quot;}],&quot;refreshOnChange&quot;:true,&quot;mask&quot;:false,&quot;tableView&quot;:true,&quot;alwaysEnabled&quot;:false,&quot;type&quot;:&quot;label&quot;,&quot;input&quot;:false,&quot;key&quot;:&quot;wellcontent&quot;,&quot;reorder&quot;:false,&quot;labelWidth&quot;:30,&quot;labelMargin&quot;:3,&quot;clearOnRefresh&quot;:false}]" CalloutTheme="{}{&quot;Activities&quot;:[&quot;CALLOUT&quot;],&quot;Id&quot;:&quot;100100&quot;,&quot;Name&quot;:&quot;Default&quot;,&quot;BaseCss&quot;:&quot;../../assets/css/themes/cerulean.bootstrap.min.css&quot;,&quot;ImageSrc&quot;:&quot;../../assets/themeicons/cerulean.png&quot;,&quot;OverrideCssUrl&quot;:&quot;../../assets/css/themes/callout-cerulean-white.css&quot;,&quot;UserStyleOverrides&quot;:&quot;&quot;,&quot;Properties&quot;:&quot;&quot;,&quot;IsCustomTheme&quot;:false,&quot;Version&quot;:1,&quot;ThemeVersion&quot;:1}" DisplayName="Callout Designer" GenerateInputFields="True" Height="237" sap:VirtualizedContainerService.HintSize="242.666666666667,82" sap2010:WorkflowViewState.IdRef="CallOutActivity_1" Width="355">
-                                  <uca:CallOutActivity.CalloutFieldsCollection>
-                                    <scg:Dictionary x:TypeArguments="x:String, Argument" />
-                                  </uca:CallOutActivity.CalloutFieldsCollection>
-                                  <uca:CallOutActivity.TargetElementPosition>
-                                    <InArgument x:TypeArguments="sd1:Rectangle">
-                                      <DelegateArgumentValue x:TypeArguments="sd1:Rectangle" sap2010:WorkflowViewState.IdRef="DelegateArgumentValue`1_1">
-                                        <DelegateInArgument x:TypeArguments="sd1:Rectangle" x:Name="__ReferenceID0" Name="TargetElementPosition" />
-                                      </DelegateArgumentValue>
-                                    </InArgument>
-                                  </uca:CallOutActivity.TargetElementPosition>
-                                  <uca:CallOutActivity.TargetWindowHandle>
-                                    <InArgument x:TypeArguments="s:IntPtr">
-                                      <DelegateArgumentValue x:TypeArguments="s:IntPtr" sap2010:WorkflowViewState.IdRef="DelegateArgumentValue`1_2">
-                                        <DelegateInArgument x:TypeArguments="s:IntPtr" x:Name="__ReferenceID1" Name="TargetWindowHandle" />
-                                      </DelegateArgumentValue>
-                                    </InArgument>
-                                  </uca:CallOutActivity.TargetWindowHandle>
-                                </uca:CallOutActivity>
-                              </ActivityFunc>
-                            </ui:CalloutScope.CalloutForm>
-                            <ui:CalloutScope.Target>
-                              <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Selector="{x:Null}" Id="2c830b93-3af4-40e2-bf68-f3797611972d">
+    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="1470.66666666667,94.6666666666667" sap2010:WorkflowViewState.IdRef="LogMessage_10" Level="Info" Message="[&quot;Starting LinkedIn Robot&quot;]" />
+    <ui:MessageBox Buttons="OkCancel" Caption="LinkedIn Robot" ChosenButton="[str_StartUpResponse]" DisplayName="Message Box - Start Up" sap:VirtualizedContainerService.HintSize="1470.66666666667,58.6666666666667" sap2010:WorkflowViewState.IdRef="MessageBox_1" Text="[&quot;Ensure LinkedIn is open in your Chrome browser.&quot; +vbCR+vbCR+&quot;Click Ok to start the bot.&quot;]" TopMost="True" />
+    <If Condition="[str_StartUpResponse=&quot;Ok&quot;]" sap:VirtualizedContainerService.HintSize="1470.66666666667,3967.33333333333" sap2010:WorkflowViewState.IdRef="If_2">
+      <If.Then>
+        <Sequence DisplayName="Process Referral" sap:VirtualizedContainerService.HintSize="1048.66666666667,3813.33333333333" sap2010:WorkflowViewState.IdRef="Sequence_14">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="1006.66666666667,94.6666666666667" sap2010:WorkflowViewState.IdRef="LogMessage_11" Level="Info" Message="[&quot;User selected to start robot.&quot;]" />
+          <ui:BrowserScope Browser="{x:Null}" SearchScope="{x:Null}" TimeoutMS="{x:Null}" UiBrowser="{x:Null}" BrowserType="Chrome" DisplayName="Attach Browser - LinkedIn" sap:VirtualizedContainerService.HintSize="1006.66666666667,3586.66666666667" sap2010:WorkflowViewState.IdRef="BrowserScope_2" InformativeScreenshot="459372304ba7d454a464a862388c9f5d" Selector="&lt;html app='chrome.exe' url='https://www.linkedin.com/in/*' /&gt;&#xA;">
+            <ui:BrowserScope.Body>
+              <ActivityAction x:TypeArguments="x:Object">
+                <ActivityAction.Argument>
+                  <DelegateInArgument x:TypeArguments="x:Object" Name="ContextTarget" />
+                </ActivityAction.Argument>
+                <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="972.666666666667,3440.66666666667" sap2010:WorkflowViewState.IdRef="Sequence_5">
+                  <Sequence.Variables>
+                    <Variable x:TypeArguments="x:String" Name="sFoundProfile" />
+                  </Sequence.Variables>
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <Assign DisplayName="Assign - bAddProfile" sap:VirtualizedContainerService.HintSize="930.666666666667,62" sap2010:WorkflowViewState.IdRef="Assign_2">
+                    <Assign.To>
+                      <OutArgument x:TypeArguments="x:String">[bAddProfile]</OutArgument>
+                    </Assign.To>
+                    <Assign.Value>
+                      <InArgument x:TypeArguments="x:String">[Boolean.TrueString]</InArgument>
+                    </Assign.Value>
+                  </Assign>
+                  <ui:GetAttribute ContinueOnError="{x:Null}" Attribute="url" DisplayName="Get Attribute - URL" sap:VirtualizedContainerService.HintSize="930.666666666667,96" sap2010:WorkflowViewState.IdRef="GetAttribute_2">
+                    <ui:GetAttribute.Result>
+                      <OutArgument x:TypeArguments="x:String">[sReferralUrl]</OutArgument>
+                    </ui:GetAttribute.Result>
+                    <ui:GetAttribute.Target>
+                      <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Selector="{x:Null}" Id="ba13a5e7-7d23-46aa-8bcb-1805f8dcce9b">
+                        <ui:Target.TimeoutMS>
+                          <InArgument x:TypeArguments="x:Int32" />
+                        </ui:Target.TimeoutMS>
+                        <ui:Target.WaitForReady>
+                          <InArgument x:TypeArguments="ui:WaitForReady" />
+                        </ui:Target.WaitForReady>
+                      </ui:Target>
+                    </ui:GetAttribute.Target>
+                  </ui:GetAttribute>
+                  <ui:ReadCsvFile Encoding="{x:Null}" DataTable="[dtRecruitingList]" Delimitator="Comma" DisplayName="Read CSV - sFilePath" FilePath="[sFilePath]" sap:VirtualizedContainerService.HintSize="930.666666666667,156.666666666667" sap2010:WorkflowViewState.IdRef="ReadCsvFile_1" />
+                  <ui:LookupDataTable LookupColumnIndex="{x:Null}" LookupDataColumn="{x:Null}" RowIndex="{x:Null}" TargetColumnIndex="{x:Null}" TargetDataColumn="{x:Null}" DataTable="[dtRecruitingList]" DisplayName="Lookup Data Table - Submitted Referrals" sap:VirtualizedContainerService.HintSize="930.666666666667,22" sap2010:WorkflowViewState.IdRef="LookupDataTable_1" LookupColumnName="Profile" LookupValue="[sReferralUrl]" TargetColumnName="Profile">
+                    <ui:LookupDataTable.CellValue>
+                      <OutArgument x:TypeArguments="x:String">[sFoundProfile]</OutArgument>
+                    </ui:LookupDataTable.CellValue>
+                  </ui:LookupDataTable>
+                  <If Condition="[sFoundProfile = &quot;&quot;]" DisplayName="If - Profile Found in Submitted Referrals" sap:VirtualizedContainerService.HintSize="930.666666666667,2852" sap2010:WorkflowViewState.IdRef="If_1">
+                    <If.Then>
+                      <Sequence sap:VirtualizedContainerService.HintSize="550.666666666667,2701.33333333333" sap2010:WorkflowViewState.IdRef="Sequence_12">
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                        <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="508.666666666667,94.6666666666667" sap2010:WorkflowViewState.IdRef="LogMessage_9" Level="Info" Message="[&quot;NOT FOUND&quot; + sFoundProfile]" />
+                        <Assign sap:VirtualizedContainerService.HintSize="508.666666666667,62" sap2010:WorkflowViewState.IdRef="Assign_1">
+                          <Assign.To>
+                            <OutArgument x:TypeArguments="x:String">[bAddProfile]</OutArgument>
+                          </Assign.To>
+                          <Assign.Value>
+                            <InArgument x:TypeArguments="x:String">[Boolean.FalseString]</InArgument>
+                          </Assign.Value>
+                        </Assign>
+                        <Sequence sap:VirtualizedContainerService.HintSize="508.666666666667,2372.66666666667" sap2010:WorkflowViewState.IdRef="Sequence_13">
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                          <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="466.666666666667,94.6666666666667" sap2010:WorkflowViewState.IdRef="LogMessage_6" Level="Info" Message="[sReferralUrl]" />
+                          <ui:GetAttribute ContinueOnError="{x:Null}" Attribute="innerText" DisplayName="Get Name" sap:VirtualizedContainerService.HintSize="466.666666666667,134" sap2010:WorkflowViewState.IdRef="GetAttribute_3">
+                            <ui:GetAttribute.Result>
+                              <OutArgument x:TypeArguments="x:String">[sReferralName]</OutArgument>
+                            </ui:GetAttribute.Result>
+                            <ui:GetAttribute.Target>
+                              <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="ba13a5e7-7d23-46aa-8bcb-1805f8dcce9b" InformativeScreenshot="a7489ed0e2828607a73f42bc7a4898dc" Selector="&lt;html app='chrome.exe' url='https://www.linkedin.com/in/*' /&gt;&lt;webctrl parentid='ember*' tag='LI' class='inline t-24 t-black t-normal break-words' parentclass='pv-top-card--list inline-flex align-items-center' /&gt;">
                                 <ui:Target.TimeoutMS>
                                   <InArgument x:TypeArguments="x:Int32" />
                                 </ui:Target.TimeoutMS>
@@ -394,23 +199,208 @@
                                   <InArgument x:TypeArguments="ui:WaitForReady" />
                                 </ui:Target.WaitForReady>
                               </ui:Target>
-                            </ui:CalloutScope.Target>
-                          </ui:CalloutScope>
-                        </If.Else>
-                      </If>
-                    </Sequence>
-                  </ActivityAction>
-                </ui:BrowserScope.Body>
-              </ui:BrowserScope>
-            </Sequence>
-          </Sequence>
-        </ActivityAction>
-      </ui:TriggerScope.Action>
-      <ui:TriggerScope.Triggers>
-        <scg:List x:TypeArguments="Activity" Capacity="4">
-          <ui:KeyPressTriggerV2 BlockEvent="False" DisplayName="Key Press Trigger 'Intermediate D3D Window'" sap:VirtualizedContainerService.HintSize="1106.66666666667,204.666666666667" sap2010:WorkflowViewState.IdRef="KeyPressTriggerV2_3" IncludeChildren="True" InformativeScreenshot="aa1dc83be4b17b425e69985e716feb6e" Key="z" KeyModifiers="None" Selector="&lt;html app='chrome.exe' /&gt;" TriggerMode="TriggerDown" />
-        </scg:List>
-      </ui:TriggerScope.Triggers>
-    </ui:TriggerScope>
+                            </ui:GetAttribute.Target>
+                          </ui:GetAttribute>
+                          <ui:GetAttribute ContinueOnError="{x:Null}" Attribute="innerText" DisplayName="Get Location" sap:VirtualizedContainerService.HintSize="466.666666666667,134" sap2010:WorkflowViewState.IdRef="GetAttribute_4">
+                            <ui:GetAttribute.Result>
+                              <OutArgument x:TypeArguments="x:String">[sReferralLocation]</OutArgument>
+                            </ui:GetAttribute.Result>
+                            <ui:GetAttribute.Target>
+                              <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="617ce8a1-1243-46c3-91e5-3ebe7bbd7dfa" InformativeScreenshot="6d5ae7d848e5649c61d0e52735cd0360" Selector="&lt;html app='chrome.exe' url='https://www.linkedin.com/in/*' /&gt;&lt;webctrl isleaf='1' parentid='ember*' tag='LI' class='t-16 t-black t-normal inline-block' /&gt;">
+                                <ui:Target.TimeoutMS>
+                                  <InArgument x:TypeArguments="x:Int32" />
+                                </ui:Target.TimeoutMS>
+                                <ui:Target.WaitForReady>
+                                  <InArgument x:TypeArguments="ui:WaitForReady" />
+                                </ui:Target.WaitForReady>
+                              </ui:Target>
+                            </ui:GetAttribute.Target>
+                          </ui:GetAttribute>
+                          <ui:OpenBrowser CommunicationMethod="{x:Null}" Hidden="{x:Null}" NewSession="{x:Null}" Private="{x:Null}" UiBrowser="{x:Null}" BrowserType="Chrome" DisplayName="Open Browser" sap:VirtualizedContainerService.HintSize="466.666666666667,1798" sap2010:WorkflowViewState.IdRef="OpenBrowser_1" Url="https://forms.office.com/Pages/ResponsePage.aspx?id=KFGnnESilkWHe_JIKOR24oGfczMo_a9InSYSveMK5w9UMTRFQ09QVkhNNlZWS1VIMENRT04wQThQNi4u">
+                            <ui:OpenBrowser.Body>
+                              <ActivityAction x:TypeArguments="x:Object">
+                                <ActivityAction.Argument>
+                                  <DelegateInArgument x:TypeArguments="x:Object" Name="ContextTarget" />
+                                </ActivityAction.Argument>
+                                <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="376,1695.33333333333" sap2010:WorkflowViewState.IdRef="Sequence_6">
+                                  <Sequence.Variables>
+                                    <Variable x:TypeArguments="sd:DataRow" Name="drProfile" />
+                                  </Sequence.Variables>
+                                  <sap:WorkflowViewStateService.ViewState>
+                                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                    </scg:Dictionary>
+                                  </sap:WorkflowViewStateService.ViewState>
+                                  <ui:SetValue AlterIfDisabled="{x:Null}" ContinueOnError="{x:Null}" DelayAfter="{x:Null}" DelayBefore="{x:Null}" DisplayName="Set Text 'INPUT'" sap:VirtualizedContainerService.HintSize="334,134" sap2010:WorkflowViewState.IdRef="SetValue_1" Text="[sMyName]">
+                                    <ui:SetValue.Target>
+                                      <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="3a1fc9c0-5d86-4b4f-8920-1b48fdfbad24" InformativeScreenshot="24878c76793b9b1c345e5a7b4d71e6c4" Selector="&lt;webctrl idx='1' tag='INPUT' /&gt;">
+                                        <ui:Target.TimeoutMS>
+                                          <InArgument x:TypeArguments="x:Int32" />
+                                        </ui:Target.TimeoutMS>
+                                        <ui:Target.WaitForReady>
+                                          <InArgument x:TypeArguments="ui:WaitForReady" />
+                                        </ui:Target.WaitForReady>
+                                      </ui:Target>
+                                    </ui:SetValue.Target>
+                                  </ui:SetValue>
+                                  <ui:SetValue AlterIfDisabled="{x:Null}" ContinueOnError="{x:Null}" DelayAfter="{x:Null}" DelayBefore="{x:Null}" DisplayName="Set Text 'INPUT'" sap:VirtualizedContainerService.HintSize="334,134" sap2010:WorkflowViewState.IdRef="SetValue_2" Text="[sReferralName.trim()]">
+                                    <ui:SetValue.Target>
+                                      <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="8b67e9ae-414e-4ae6-b0b6-c43ac17610a4" InformativeScreenshot="6ae3af009174fef29716494d3345d239" Selector="&lt;webctrl idx='2' tag='INPUT' /&gt;">
+                                        <ui:Target.TimeoutMS>
+                                          <InArgument x:TypeArguments="x:Int32" />
+                                        </ui:Target.TimeoutMS>
+                                        <ui:Target.WaitForReady>
+                                          <InArgument x:TypeArguments="ui:WaitForReady" />
+                                        </ui:Target.WaitForReady>
+                                      </ui:Target>
+                                    </ui:SetValue.Target>
+                                  </ui:SetValue>
+                                  <ui:SetValue AlterIfDisabled="{x:Null}" ContinueOnError="{x:Null}" DelayAfter="{x:Null}" DelayBefore="{x:Null}" DisplayName="Set Text 'INPUT'" sap:VirtualizedContainerService.HintSize="334,134" sap2010:WorkflowViewState.IdRef="SetValue_3" Text="[sReferralUrl.trim()]">
+                                    <ui:SetValue.Target>
+                                      <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="c9acd919-3c0c-479c-8f6a-878e6e0f590c" InformativeScreenshot="cac17ec5c990c7fe721fc276afae42e4" Selector="&lt;webctrl idx='3' tag='INPUT' /&gt;">
+                                        <ui:Target.TimeoutMS>
+                                          <InArgument x:TypeArguments="x:Int32" />
+                                        </ui:Target.TimeoutMS>
+                                        <ui:Target.WaitForReady>
+                                          <InArgument x:TypeArguments="ui:WaitForReady" />
+                                        </ui:Target.WaitForReady>
+                                      </ui:Target>
+                                    </ui:SetValue.Target>
+                                  </ui:SetValue>
+                                  <ui:SetValue AlterIfDisabled="{x:Null}" ContinueOnError="{x:Null}" DelayAfter="{x:Null}" DelayBefore="{x:Null}" DisplayName="Set Text 'INPUT'" sap:VirtualizedContainerService.HintSize="334,134" sap2010:WorkflowViewState.IdRef="SetValue_5" Text="[sReferralLocation.trim()]">
+                                    <ui:SetValue.Target>
+                                      <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="ddfa90a7-ef2e-4d1c-8c8c-c6bd8543a951" InformativeScreenshot="5bc7b70f1dcaec1bf8810b1d24483682" Selector="&lt;webctrl idx='4' tag='INPUT' /&gt;">
+                                        <ui:Target.TimeoutMS>
+                                          <InArgument x:TypeArguments="x:Int32" />
+                                        </ui:Target.TimeoutMS>
+                                        <ui:Target.WaitForReady>
+                                          <InArgument x:TypeArguments="ui:WaitForReady" />
+                                        </ui:Target.WaitForReady>
+                                      </ui:Target>
+                                    </ui:SetValue.Target>
+                                  </ui:SetValue>
+                                  <ui:SetValue AlterIfDisabled="{x:Null}" ContinueOnError="{x:Null}" DelayAfter="{x:Null}" DelayBefore="{x:Null}" DisplayName="Set Text 'TEXTAREA'" sap:VirtualizedContainerService.HintSize="334,134" sap2010:WorkflowViewState.IdRef="SetValue_4" Text="[sKnowThem]">
+                                    <ui:SetValue.Target>
+                                      <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="bc1dc28a-3883-4e83-bcb1-20db57320e83" InformativeScreenshot="a95d7835e9e76f62220f71d4fff8ea01" Selector="&lt;webctrl tag='TEXTAREA' /&gt;">
+                                        <ui:Target.TimeoutMS>
+                                          <InArgument x:TypeArguments="x:Int32" />
+                                        </ui:Target.TimeoutMS>
+                                        <ui:Target.WaitForReady>
+                                          <InArgument x:TypeArguments="ui:WaitForReady" />
+                                        </ui:Target.WaitForReady>
+                                      </ui:Target>
+                                    </ui:SetValue.Target>
+                                  </ui:SetValue>
+                                  <ui:Check AlterIfDisabled="{x:Null}" ContinueOnError="{x:Null}" DelayAfter="{x:Null}" DelayBefore="{x:Null}" Action="Check" DisplayName="Check 'INPUT'" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="Check_1">
+                                    <ui:Check.Target>
+                                      <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="83a261af-9b2d-4182-93d7-59c81b098807" InformativeScreenshot="5baa5d0577d10c525f13ae5cd00ec00b" Selector="&lt;webctrl idx='1' tag='INPUT' type='radio' /&gt;">
+                                        <ui:Target.TimeoutMS>
+                                          <InArgument x:TypeArguments="x:Int32" />
+                                        </ui:Target.TimeoutMS>
+                                        <ui:Target.WaitForReady>
+                                          <InArgument x:TypeArguments="ui:WaitForReady" />
+                                        </ui:Target.WaitForReady>
+                                      </ui:Target>
+                                    </ui:Check.Target>
+                                  </ui:Check>
+                                  <ui:Check AlterIfDisabled="{x:Null}" ContinueOnError="{x:Null}" DelayAfter="{x:Null}" DelayBefore="{x:Null}" Action="Check" DisplayName="Check 'INPUT'" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="Check_2">
+                                    <ui:Check.Target>
+                                      <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="7f0f9807-1806-47da-99b9-d8a69fe7153e" InformativeScreenshot="038429671a58d47003ea54a7a802606d" Selector="&lt;html app='chrome.exe' title='RDT Referrals' /&gt;&lt;webctrl tag='INPUT' type='radio' aria-label='No, but you can mention me -- We will reach out via LinkedIn or contact information provided' /&gt;">
+                                        <ui:Target.TimeoutMS>
+                                          <InArgument x:TypeArguments="x:Int32" />
+                                        </ui:Target.TimeoutMS>
+                                        <ui:Target.WaitForReady>
+                                          <InArgument x:TypeArguments="ui:WaitForReady" />
+                                        </ui:Target.WaitForReady>
+                                      </ui:Target>
+                                    </ui:Check.Target>
+                                  </ui:Check>
+                                  <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click 'DIV'" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="Click_1" KeyModifiers="None" MouseButton="BTN_LEFT">
+                                    <ui:Click.CursorPosition>
+                                      <ui:CursorPosition Position="Center">
+                                        <ui:CursorPosition.OffsetX>
+                                          <InArgument x:TypeArguments="x:Int32" />
+                                        </ui:CursorPosition.OffsetX>
+                                        <ui:CursorPosition.OffsetY>
+                                          <InArgument x:TypeArguments="x:Int32" />
+                                        </ui:CursorPosition.OffsetY>
+                                      </ui:CursorPosition>
+                                    </ui:Click.CursorPosition>
+                                    <ui:Click.Target>
+                                      <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="06a72b2e-efee-496d-911d-0dd774ceede9" InformativeScreenshot="0e875e6ec3e78dd4bf2d650f47624f26" Selector="&lt;webctrl css-selector='body&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div' idx='1' isleaf='1' parentid='form-container' tag='DIV' /&gt;">
+                                        <ui:Target.TimeoutMS>
+                                          <InArgument x:TypeArguments="x:Int32" />
+                                        </ui:Target.TimeoutMS>
+                                        <ui:Target.WaitForReady>
+                                          <InArgument x:TypeArguments="ui:WaitForReady" />
+                                        </ui:Target.WaitForReady>
+                                      </ui:Target>
+                                    </ui:Click.Target>
+                                  </ui:Click>
+                                  <ui:BuildDataTable DataTable="[dtNewProfile]" DisplayName="Build Data Table" sap:VirtualizedContainerService.HintSize="334,58.6666666666667" sap2010:WorkflowViewState.IdRef="BuildDataTable_1" TableInfo="&lt;NewDataSet&gt;&#xA;  &lt;xs:schema id=&quot;NewDataSet&quot; xmlns=&quot;&quot; xmlns:xs=&quot;http://www.w3.org/2001/XMLSchema&quot; xmlns:msdata=&quot;urn:schemas-microsoft-com:xml-msdata&quot;&gt;&#xA;    &lt;xs:element name=&quot;NewDataSet&quot; msdata:IsDataSet=&quot;true&quot; msdata:MainDataTable=&quot;TableName&quot; msdata:UseCurrentLocale=&quot;true&quot;&gt;&#xA;      &lt;xs:complexType&gt;&#xA;        &lt;xs:choice minOccurs=&quot;0&quot; maxOccurs=&quot;unbounded&quot;&gt;&#xA;          &lt;xs:element name=&quot;TableName&quot;&gt;&#xA;            &lt;xs:complexType&gt;&#xA;              &lt;xs:sequence&gt;&#xA;                &lt;xs:element name=&quot;Profile&quot; msdata:Caption=&quot;&quot; minOccurs=&quot;0&quot;&gt;&#xA;                  &lt;xs:simpleType&gt;&#xA;                    &lt;xs:restriction base=&quot;xs:string&quot;&gt;&#xA;                      &lt;xs:maxLength value=&quot;100&quot; /&gt;&#xA;                    &lt;/xs:restriction&gt;&#xA;                  &lt;/xs:simpleType&gt;&#xA;                &lt;/xs:element&gt;&#xA;              &lt;/xs:sequence&gt;&#xA;            &lt;/xs:complexType&gt;&#xA;          &lt;/xs:element&gt;&#xA;        &lt;/xs:choice&gt;&#xA;      &lt;/xs:complexType&gt;&#xA;    &lt;/xs:element&gt;&#xA;  &lt;/xs:schema&gt;&#xA;&lt;/NewDataSet&gt;" />
+                                  <ui:AddDataRow DataRow="{x:Null}" ArrayRow="[{sReferralUrl}]" DataTable="[dtNewProfile]" DisplayName="Add Data Row" sap:VirtualizedContainerService.HintSize="334,22" sap2010:WorkflowViewState.IdRef="AddDataRow_1" />
+                                  <ui:AppendCsvFile Encoding="{x:Null}" DataTable="[dtNewProfile]" Delimitator="Comma" DisplayName="Append to CSV" FilePath="[sFilePath]" sap:VirtualizedContainerService.HintSize="334,134.666666666667" sap2010:WorkflowViewState.IdRef="AppendCsvFile_1" />
+                                </Sequence>
+                              </ActivityAction>
+                            </ui:OpenBrowser.Body>
+                          </ui:OpenBrowser>
+                        </Sequence>
+                      </Sequence>
+                    </If.Then>
+                    <If.Else>
+                      <ui:CalloutScope DisplayName="Callout" sap:VirtualizedContainerService.HintSize="334,190" sap2010:WorkflowViewState.IdRef="CalloutScope_1">
+                        <ui:CalloutScope.CalloutForm>
+                          <ActivityFunc x:TypeArguments="sd1:Rectangle, s:IntPtr, stt:Task" Argument1="{x:Reference __ReferenceID0}" Argument2="{x:Reference __ReferenceID1}">
+                            <uca:CallOutActivity CalloutFieldsInputData="{x:Null}" CalloutFieldsOutputData="{x:Null}" Dismissed="{x:Null}" Result="{x:Null}" SelectedButton="{x:Null}" TimeoutInSeconds="{x:Null}" BackgroundColor="#FFFFFFFF" CalloutSchema="%[{&quot;tag&quot;:&quot;h3&quot;,&quot;refreshOnChange&quot;:true,&quot;content&quot;:&quot;Already sent rockstar.&quot;,&quot;key&quot;:&quot;title&quot;,&quot;label&quot;:&quot;HTML&quot;,&quot;attrs&quot;:[{&quot;attr&quot;:&quot;&quot;,&quot;value&quot;:&quot;&quot;}],&quot;mask&quot;:false,&quot;tableView&quot;:true,&quot;alwaysEnabled&quot;:false,&quot;type&quot;:&quot;label&quot;,&quot;input&quot;:false,&quot;reorder&quot;:false,&quot;labelWidth&quot;:30,&quot;labelMargin&quot;:3,&quot;clearOnRefresh&quot;:false},{&quot;label&quot;:&quot;Close&quot;,&quot;theme&quot;:&quot;danger&quot;,&quot;tableView&quot;:false,&quot;key&quot;:&quot;close&quot;,&quot;custom&quot;:&quot;instance.emit('executeDoBlock', instance.component);&quot;,&quot;input&quot;:true,&quot;type&quot;:&quot;button&quot;},{&quot;label&quot;:&quot;HTML&quot;,&quot;tag&quot;:&quot;br&quot;,&quot;attrs&quot;:[{&quot;attr&quot;:&quot;&quot;,&quot;value&quot;:&quot;&quot;}],&quot;refreshOnChange&quot;:true,&quot;mask&quot;:false,&quot;tableView&quot;:true,&quot;alwaysEnabled&quot;:false,&quot;type&quot;:&quot;label&quot;,&quot;input&quot;:false,&quot;key&quot;:&quot;wellcontent&quot;,&quot;reorder&quot;:false,&quot;labelWidth&quot;:30,&quot;labelMargin&quot;:3,&quot;clearOnRefresh&quot;:false}]" CalloutTheme="{}{&quot;Activities&quot;:[&quot;CALLOUT&quot;],&quot;Id&quot;:&quot;100100&quot;,&quot;Name&quot;:&quot;Default&quot;,&quot;BaseCss&quot;:&quot;../../assets/css/themes/cerulean.bootstrap.min.css&quot;,&quot;ImageSrc&quot;:&quot;../../assets/themeicons/cerulean.png&quot;,&quot;OverrideCssUrl&quot;:&quot;../../assets/css/themes/callout-cerulean-white.css&quot;,&quot;UserStyleOverrides&quot;:&quot;&quot;,&quot;Properties&quot;:&quot;&quot;,&quot;IsCustomTheme&quot;:false,&quot;Version&quot;:1,&quot;ThemeVersion&quot;:1}" DisplayName="Callout Designer" GenerateInputFields="True" Height="237" sap:VirtualizedContainerService.HintSize="242.666666666667,82" sap2010:WorkflowViewState.IdRef="CallOutActivity_1" Width="355">
+                              <uca:CallOutActivity.CalloutFieldsCollection>
+                                <scg:Dictionary x:TypeArguments="x:String, Argument" />
+                              </uca:CallOutActivity.CalloutFieldsCollection>
+                              <uca:CallOutActivity.TargetElementPosition>
+                                <InArgument x:TypeArguments="sd1:Rectangle">
+                                  <DelegateArgumentValue x:TypeArguments="sd1:Rectangle" sap2010:WorkflowViewState.IdRef="DelegateArgumentValue`1_1">
+                                    <DelegateInArgument x:TypeArguments="sd1:Rectangle" x:Name="__ReferenceID0" Name="TargetElementPosition" />
+                                  </DelegateArgumentValue>
+                                </InArgument>
+                              </uca:CallOutActivity.TargetElementPosition>
+                              <uca:CallOutActivity.TargetWindowHandle>
+                                <InArgument x:TypeArguments="s:IntPtr">
+                                  <DelegateArgumentValue x:TypeArguments="s:IntPtr" sap2010:WorkflowViewState.IdRef="DelegateArgumentValue`1_2">
+                                    <DelegateInArgument x:TypeArguments="s:IntPtr" x:Name="__ReferenceID1" Name="TargetWindowHandle" />
+                                  </DelegateArgumentValue>
+                                </InArgument>
+                              </uca:CallOutActivity.TargetWindowHandle>
+                            </uca:CallOutActivity>
+                          </ActivityFunc>
+                        </ui:CalloutScope.CalloutForm>
+                        <ui:CalloutScope.Target>
+                          <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Selector="{x:Null}" Id="2c830b93-3af4-40e2-bf68-f3797611972d">
+                            <ui:Target.TimeoutMS>
+                              <InArgument x:TypeArguments="x:Int32" />
+                            </ui:Target.TimeoutMS>
+                            <ui:Target.WaitForReady>
+                              <InArgument x:TypeArguments="ui:WaitForReady" />
+                            </ui:Target.WaitForReady>
+                          </ui:Target>
+                        </ui:CalloutScope.Target>
+                      </ui:CalloutScope>
+                    </If.Else>
+                  </If>
+                </Sequence>
+              </ActivityAction>
+            </ui:BrowserScope.Body>
+          </ui:BrowserScope>
+        </Sequence>
+      </If.Then>
+      <If.Else>
+        <Sequence sap:VirtualizedContainerService.HintSize="376,186.666666666667" sap2010:WorkflowViewState.IdRef="Sequence_15">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,94.6666666666667" sap2010:WorkflowViewState.IdRef="LogMessage_12" Level="Info" Message="[&quot;User selected to cancel robot.&quot;]" />
+        </Sequence>
+      </If.Else>
+    </If>
   </Sequence>
 </Activity>
