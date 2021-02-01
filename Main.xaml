@@ -305,7 +305,7 @@
                                   </ui:Check>
                                   <ui:Check AlterIfDisabled="{x:Null}" ContinueOnError="{x:Null}" DelayAfter="{x:Null}" DelayBefore="{x:Null}" Action="Check" DisplayName="Check 'INPUT'" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="Check_2">
                                     <ui:Check.Target>
-                                      <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="7f0f9807-1806-47da-99b9-d8a69fe7153e" InformativeScreenshot="038429671a58d47003ea54a7a802606d" Selector="&lt;html app='chrome.exe' title='RDT Referrals' /&gt;&lt;webctrl tag='INPUT' type='radio' aria-label='No, but you can mention me -- We will reach out via LinkedIn or contact information provided' /&gt;">
+                                      <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="7f0f9807-1806-47da-99b9-d8a69fe7153e" InformativeScreenshot="038429671a58d47003ea54a7a802606d" Selector="&lt;webctrl aaname='No, but you can mention me -- We will reach out via LinkedIn or *' tag='SPAN' /&gt;">
                                         <ui:Target.TimeoutMS>
                                           <InArgument x:TypeArguments="x:Int32" />
                                         </ui:Target.TimeoutMS>
